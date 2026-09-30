@@ -1,0 +1,344 @@
+```html
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GÜMRÜKHAN MENÜ</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            color: white;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(180, 0, 0, 0.35), transparent 35%),
+                radial-gradient(circle at 85% 75%, rgba(255, 170, 0, 0.22), transparent 35%),
+                linear-gradient(135deg, #050505, #160707, #050505);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            animation: moveLight 8s infinite alternate ease-in-out;
+        }
+
+        body::before {
+            background: rgba(190, 0, 0, 0.35);
+            top: -100px;
+            left: -100px;
+        }
+
+        body::after {
+            background: rgba(255, 170, 0, 0.18);
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 2s;
+        }
+
+        @keyframes moveLight {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(100px, 80px) scale(1.25);
+            }
+
+            100% {
+                transform: translate(-50px, 120px) scale(0.9);
+            }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            padding: 35px 18px 50px;
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 34px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: #f5c542;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            text-shadow:
+                0 0 10px rgba(245, 197, 66, 0.25),
+                0 0 25px rgba(245, 197, 66, 0.12);
+        }
+
+        .logo-line {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                #f5c542,
+                transparent
+            );
+            margin: 0 auto 35px;
+            border-radius: 10px;
+        }
+
+        .category {
+            background: rgba(20, 10, 10, 0.88);
+            border: 1px solid rgba(245, 197, 66, 0.25);
+            border-radius: 20px;
+            padding: 22px 15px;
+            margin-bottom: 25px;
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, 0.5),
+                inset 0 0 20px rgba(255, 255, 255, 0.015);
+            backdrop-filter: blur(10px);
+        }
+
+        .category-title {
+            text-align: center;
+            color: #f5c542;
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+
+        .category-title::after {
+            content: "";
+            display: block;
+            width: 70px;
+            height: 2px;
+            background: #f5c542;
+            margin: 9px auto 0;
+            opacity: 0.7;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            padding: 19px 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.25s ease;
+            border-radius: 10px;
+        }
+
+        .item:last-child {
+            border-bottom: none;
+        }
+
+        .item:hover {
+            background: rgba(245, 197, 66, 0.05);
+            transform: translateX(3px);
+        }
+
+        .product {
+            font-size: 21px;
+            font-weight: 650;
+            color: #ffffff;
+            line-height: 1.25;
+        }
+
+        .price {
+            font-size: 23px;
+            font-weight: 900;
+            color: #f5c542;
+            white-space: nowrap;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 15px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 480px) {
+
+            .container {
+                padding: 28px 13px 40px;
+            }
+
+            .logo {
+                font-size: 28px;
+                letter-spacing: 3px;
+            }
+
+            .category {
+                padding: 19px 10px;
+                border-radius: 17px;
+            }
+
+            .category-title {
+                font-size: 23px;
+            }
+
+            .item {
+                padding: 17px 8px;
+                gap: 18px;
+            }
+
+            .product {
+                font-size: 19px;
+            }
+
+            .price {
+                font-size: 21px;
+            }
+        }
+
+        @media (max-width: 360px) {
+
+            .logo {
+                font-size: 25px;
+                letter-spacing: 2px;
+            }
+
+            .category-title {
+                font-size: 21px;
+            }
+
+            .product {
+                font-size: 18px;
+            }
+
+            .price {
+                font-size: 20px;
+            }
+
+            .item {
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="logo">
+            GÜMRÜKHAN MENÜ
+        </div>
+
+        <div class="logo-line"></div>
+
+        <div class="category">
+
+            <div class="category-title">
+                Yiyecekler
+            </div>
+
+            <div class="item">
+                <div class="product">Yarım Ciğer</div>
+                <div class="price">235 TL</div>
+            </div>
+
+            <div class="item">
+                <div class="product">Tam Ciğer</div>
+                <div class="price">360 TL</div>
+            </div>
+
+            <div class="item">
+                <div class="product">Yarım Yürek</div>
+                <div class="price">235 TL</div>
+            </div>
+
+            <div class="item">
+                <div class="product">Tam Yürek</div>
+                <div class="price">360 TL</div>
+            </div>
+
+            <div class="item">
+                <div class="product">Yarım Kuşbaşı</div>
+                <div class="price">240 TL</div>
+            </div>
+
+            <div class="item">
+                <div class="product">Tam Kuşbaşı</div>
+                <div class="price">390 TL</div>
+            </div>
+
+            <div class="item">
+                <div class="product">Yarım Terbiyeli Tavuk</div>
+                <div class="price">210 TL</div>
+            </div>
+
+            <div class="item">
+                <div class="product">Tam Terbiyeli Tavuk</div>
+                <div class="price">300 TL</div>
+            </div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-title">
+                İçecekler
+            </div>
+
+            <div class="item">
+                <div class="product">Açık Ayran</div>
+                <div class="price">20 TL</div>
+            </div>
+
+            <div class="item">
+                <div class="product">Kapalı Ayran</div>
+                <div class="price">25 TL</div>
+            </div>
+
+            <div class="item">
+                <div class="product">Kola</div>
+                <div class="price">65 TL</div>
+            </div>
+
+            <div class="item">
+                <div class="product">Şalgam</div>
+                <div class="price">50 TL</div>
+            </div>
+
+            <div class="item">
+                <div class="product">Meyveli Soda</div>
+                <div class="price">50 TL</div>
+            </div>
+
+            <div class="item">
+                <div class="product">Sade Soda</div>
+                <div class="price">35 TL</div>
+            </div>
+
+            <div class="item">
+                <div class="product">Meyve Suyu</div>
+                <div class="price">65 TL</div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            GÜMRÜKHAN
+        </div>
+
+    </div>
+
+</body>
+</html>
+```
